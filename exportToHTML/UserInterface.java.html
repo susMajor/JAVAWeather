@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>UserInterface.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a38474;}
+.s1 { color: #c0b6a8;}
+.s2 { color: #f0efd0;}
+.s3 { color: #ffffff;}
+.s4 { color: #cc9393;}
+.s5 { color: #b9a185;}
+</style>
+</head>
+<body bgcolor="#2d3639">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+UserInterface.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">GUI</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">net</span><span class="s2">.</span><span class="s1">sf</span><span class="s2">.</span><span class="s1">json</span><span class="s2">.</span><span class="s1">JSONObject</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">javax</span><span class="s2">.</span><span class="s1">swing</span><span class="s2">.*;</span>
+<span class="s0">import </span><span class="s1">javax</span><span class="s2">.</span><span class="s1">swing</span><span class="s2">.</span><span class="s1">border</span><span class="s2">.</span><span class="s1">Border</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">awt</span><span class="s2">.*;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">awt</span><span class="s2">.</span><span class="s1">event</span><span class="s2">.</span><span class="s1">ItemEvent</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">awt</span><span class="s2">.</span><span class="s1">event</span><span class="s2">.</span><span class="s1">ItemListener</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">awt</span><span class="s2">.</span><span class="s1">event</span><span class="s2">.</span><span class="s1">MouseAdapter</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">awt</span><span class="s2">.</span><span class="s1">event</span><span class="s2">.</span><span class="s1">MouseEvent</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">awt</span><span class="s2">.</span><span class="s1">image</span><span class="s2">.</span><span class="s1">BufferedImage</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">UserInterface </span><span class="s0">extends </span><span class="s1">JFrame </span><span class="s3">{</span>
+    <span class="s0">private </span><span class="s1">JPanel jp </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">JComboBox citys </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">JButton search </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">JTextArea result </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+    <span class="s0">public static </span><span class="s1">String url</span><span class="s2">=</span><span class="s4">&quot;http://v.juhe.cn/weather/index&quot;</span><span class="s2">;</span>
+
+
+    <span class="s0">public </span><span class="s1">UserInterface</span><span class="s3">() {</span>
+        <span class="s1">jp </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JPanel</span><span class="s3">()</span><span class="s2">;</span>
+        <span class="s1">String city_array</span><span class="s3">[] </span><span class="s2">= </span><span class="s3">{</span><span class="s4">&quot;南京&quot;</span><span class="s2">,</span><span class="s4">&quot;北京&quot;</span><span class="s3">}</span><span class="s2">;</span>
+        <span class="s1">citys </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JComboBox</span><span class="s3">(</span><span class="s1">city_array</span><span class="s3">)</span><span class="s2">;</span>
+        <span class="s1">result </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JTextArea</span><span class="s3">(</span><span class="s4">&quot;kk&quot;</span><span class="s3">)</span><span class="s2">;</span>
+        <span class="s1">result</span><span class="s2">.</span><span class="s1">setEditable</span><span class="s3">(</span><span class="s0">false</span><span class="s3">)</span><span class="s2">;</span>
+        <span class="s1">search </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JButton</span><span class="s3">(</span><span class="s4">&quot;SEARCH&quot;</span><span class="s3">)</span><span class="s2">;</span>
+
+
+        <span class="s1">jp</span><span class="s2">.</span><span class="s1">add</span><span class="s3">(</span><span class="s1">citys</span><span class="s3">)</span><span class="s2">;</span>
+        <span class="s1">jp</span><span class="s2">.</span><span class="s1">add</span><span class="s3">(</span><span class="s1">search</span><span class="s3">)</span><span class="s2">;</span>
+
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">setBounds</span><span class="s3">(</span><span class="s5">100</span><span class="s2">,</span><span class="s5">100</span><span class="s2">,</span><span class="s5">100</span><span class="s2">,</span><span class="s5">100</span><span class="s3">)</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">add</span><span class="s3">(</span><span class="s1">result</span><span class="s2">, </span><span class="s1">BorderLayout</span><span class="s2">.</span><span class="s1">CENTER</span><span class="s3">)</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">add</span><span class="s3">(</span><span class="s1">jp</span><span class="s2">,</span><span class="s1">BorderLayout</span><span class="s2">.</span><span class="s1">SOUTH</span><span class="s3">)</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">setSize</span><span class="s3">(</span><span class="s5">700</span><span class="s2">, </span><span class="s5">500</span><span class="s3">)</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">setTitle</span><span class="s3">(</span><span class="s4">&quot;WEATHER!&quot;</span><span class="s3">)</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">setDefaultCloseOperation</span><span class="s3">(</span><span class="s1">JFrame</span><span class="s2">.</span><span class="s1">EXIT_ON_CLOSE</span><span class="s3">)</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">setVisible</span><span class="s3">(</span><span class="s0">true</span><span class="s3">)</span><span class="s2">;</span>
+
+        <span class="s1">search</span><span class="s2">.</span><span class="s1">addMouseListener</span><span class="s3">(</span><span class="s0">new </span><span class="s1">MouseAdapter</span><span class="s3">() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">mouseClicked</span><span class="s3">(</span><span class="s1">MouseEvent e</span><span class="s3">) {</span>
+                <span class="s1">JSONObject obj</span><span class="s2">=</span><span class="s1">JSONObject</span><span class="s2">.</span><span class="s1">fromObject</span><span class="s3">(</span><span class="s1">WeatherAPI</span><span class="s2">.</span><span class="s1">APIConnection</span><span class="s2">.</span><span class="s1">getConnection</span><span class="s3">(</span><span class="s4">&quot;南京&quot;</span><span class="s3">))</span><span class="s2">;</span>
+                <span class="s1">JSONObject res</span><span class="s2">=</span><span class="s3">(</span><span class="s1">JSONObject</span><span class="s3">) </span><span class="s1">obj</span><span class="s2">.</span><span class="s1">get</span><span class="s3">(</span><span class="s4">&quot;result&quot;</span><span class="s3">)</span><span class="s2">;</span>
+                <span class="s1">JSONObject sk</span><span class="s2">=</span><span class="s3">(</span><span class="s1">JSONObject</span><span class="s3">) </span><span class="s1">res</span><span class="s2">.</span><span class="s1">get</span><span class="s3">(</span><span class="s4">&quot;sk&quot;</span><span class="s3">)</span><span class="s2">;</span>
+
+                <span class="s1">result</span><span class="s2">.</span><span class="s1">append</span><span class="s3">(</span><span class="s4">&quot;</span><span class="s5">\n</span><span class="s4">温度： &quot;</span><span class="s2">+</span><span class="s1">sk</span><span class="s2">.</span><span class="s1">getString</span><span class="s3">(</span><span class="s4">&quot;temp&quot;</span><span class="s3">))</span><span class="s2">;</span>
+            <span class="s3">}</span>
+        })<span class="s2">;</span>
+
+    <span class="s3">}</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s3">(</span><span class="s1">String arg</span><span class="s3">[]){</span>
+        <span class="s1">UserInterface UI</span><span class="s2">= </span><span class="s0">new </span><span class="s1">UserInterface</span><span class="s3">()</span><span class="s2">;</span>
+
+    <span class="s3">}</span>
+}
+</pre>
+</body>
+</html>

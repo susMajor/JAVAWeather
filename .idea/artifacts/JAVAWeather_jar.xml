@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="JAVAWeather:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JAVAWeather_jar</output-path>
+    <root id="archive" name="JAVAWeather.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$USER_HOME$/Java/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="JAVAWeather" />
+      <element id="extracted-dir" path="$USER_HOME$/Java/api/jars/gson-2.8.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Java/api/jars/ezmorph-1.0.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Java/api/jars/commons-lang-2.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Java/api/jars/httpclient-4.5.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Java/api/jars/json-lib-2.4-jdk15.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Java/api/jars/commons-lang3-3.8.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Java/api/jars/commons-logging-1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Java/api/jars/commons-beanutils-1.9.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Java/api/jars/commons-collections4-4.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Java/api/jars/commons-collections-3.2.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
